@@ -4,6 +4,12 @@ package com.example.demo;
 import javax.persistence.*;
 
 @Entity(name = "Student")
+@Table(
+        name = "student",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "unique_student_mail", columnNames = "email")
+        }
+)
 public class Student {
 
     @Id
@@ -41,16 +47,14 @@ public class Student {
     @Column(
             name = "email",
             nullable = false,
-            columnDefinition =  "TEXT",
-            unique = true
+            columnDefinition =  "TEXT"
     )
     private String email;
 
     @Column(name = "age", nullable = false)
     private  Integer age;
 
-    public Student(long id, String first_name, String last_name, String email, Integer age) {
-        this.id = id;
+    public Student(String first_name, String last_name, String email, Integer age) {
         First_name = first_name;
         Last_name = last_name;
         this.email = email;
