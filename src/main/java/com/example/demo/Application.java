@@ -15,8 +15,8 @@ public class Application {
    @Bean
     CommandLineRunner commandLineRunner (StudentRepository studentRepository) {
         return  args -> {
-            Student aliu = new Student("Aliu",
-                    "Borgue","aliu@gmail.com",23);
+            Student aliu = new Student("Jahmeelah",
+                    "Jatto","Jahmeela@gmail.com",22);
             studentRepository.save(aliu);
         };
     }
