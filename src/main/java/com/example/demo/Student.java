@@ -3,7 +3,7 @@ package com.example.demo;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Student")
 public class Student {
 
     @Id
@@ -18,10 +18,35 @@ public class Student {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
+
+    @Column(
+            name =  "id",
+            updatable = false
+    )
     private long id;
+
+    @Column(
+            name = "first_name",
+            nullable = false,
+            columnDefinition =  "TEXT"
+    )
     private  String First_name;
+    @Column(
+            name = "last_name",
+            nullable = false,
+            columnDefinition =  "TEXT"
+    )
     private  String Last_name;
+
+    @Column(
+            name = "email",
+            nullable = false,
+            columnDefinition =  "TEXT",
+            unique = true
+    )
     private String email;
+
+    @Column(name = "age", nullable = false)
     private  Integer age;
 
     public Student(long id, String first_name, String last_name, String email, Integer age) {
